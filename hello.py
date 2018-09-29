@@ -15,71 +15,80 @@ SHOWTABLES = "SHOW TABLES"
 SHOWDATABASES = "SHOW DATABASES"
 attributes = []
 
-FIRST DO THIS:
+#FIRST DO THIS:
 
-# --------------------------UPLOADING RAW DATA (COPY)------------------------------
-# cursor.execute(SHOWDATABASES)
-#
-# for db in cursor:
-#     print(db)
-#
-# print("\n")
-#
-# print("I'M HERE")
-#
-# file = open("nyc_open_data.json", "r")
-#
-# the_file = file.read()
-#
-# working_data = json.loads(the_file)
-#
-# print( type(working_data) )
-# print("\n")
-# #
-# # for key in working_data["meta"]["view"]["columns"]:
-# #     if(key["id"] > -1):
-# #         print(key["name"] + "\t\t\t\t" + key["dataTypeName"])
-# #         attributes.append(key["name"])
-#
-# # print("\n")
-# # for key in working_data:
-# #     print(key)
-# # print("I'M HERE NOW")
-#
-# print("\n")
-# #
-# # for attribute in attributes:
-# #     print(attribute)
-#
-# del working_data["meta"]
-#
-# #deleting the first 8 useless data
-# for data in working_data["data"]:
-#         del data[:8]
-#
-# #adjusting the data's so it has 10 characters
-# for data in working_data["data"]:
-#     if(data[8] != None):
-#         data[8] = data[8][:10]
-#     if(data[15] != None):
-#         data[15] = data[15][:10]
-#     if(data[16] != None):
-#         data[16] = data[16][:10]
-#
-# # for data in working_data["data"]:
-# #      print(data)
-#
-# for data in working_data["data"]:
-#     tupledata1 = tuple(data)
-#     cursor.execute("INSERT INTO file_data (CAMIS, DBA, BORO, BUILDING, STREET, ZIPCODE, PHONE, "
-#                    "CUISINE_DESCRIPTION, INSPECTION_DATE, ACTION_, VIOLATION_CODE, VIOLATION_DESCRIPTION,"
-#                    "CRITICAL_FLAG, SCORE, GRADE, GRADE_DATE, RECORD_DATE, INSPECTION_TYPE) VALUES(%s, %s, %s, %s, %s,"
-#                    "%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", tupledata1)
-#
-# myce_db.commit()
-# ------------------------------UPLOADING RAW DATA (COPY)----------------------------
+#--------------------------UPLOADING RAW DATA (COPY)------------------------------
+cursor.execute(SHOWDATABASES)
 
-NEXT DO THIS:
+cursor.execute("DROP TABLE IF EXISTS file_data");
+data = "CREATE TABLE file_data( CAMIS VARCHAR(8), DBA VARCHAR(150), BORO VARCHAR(15),"
+       "BUILDING VARCHAR (20), STREET VARCHAR(80), ZIPCODE VARCHAR(6),PHONE VARCHAR(20),"
+        "CUISINE_DESCRIPTION VARCHAR(200), INSPECTION_DATE	VARCHAR(10), ACTION_ VARCHAR(200),"
+        "VIOLATION_CODE VARCHAR(3), SCORE VARCHAR(15), GRADE VARCHAR(15), GRADE_DATE VARCHAR(10),"
+        "INSPECTION_TYPE VARCHAR(100) )"
+
+cursor.execute(data);
+
+for db in cursor:
+    print(db)
+
+print("\n")
+
+print("I'M HERE")
+
+file = open("nyc_open_data.json", "r")
+
+the_file = file.read()
+
+working_data = json.loads(the_file)
+
+print( type(working_data) )
+print("\n")
+#
+# for key in working_data["meta"]["view"]["columns"]:
+#     if(key["id"] > -1):
+#         print(key["name"] + "\t\t\t\t" + key["dataTypeName"])
+#         attributes.append(key["name"])
+
+# print("\n")
+# for key in working_data:
+#     print(key)
+# print("I'M HERE NOW")
+
+print("\n")
+#
+# for attribute in attributes:
+#     print(attribute)
+
+del working_data["meta"]
+
+#deleting the first 8 useless data
+for data in working_data["data"]:
+        del data[:8]
+
+#adjusting the data's so it has 10 characters
+for data in working_data["data"]:
+    if(data[8] != None):
+        data[8] = data[8][:10]
+    if(data[15] != None):
+        data[15] = data[15][:10]
+    if(data[16] != None):
+        data[16] = data[16][:10]
+
+# for data in working_data["data"]:
+#      print(data)
+
+for data in working_data["data"]:
+    tupledata1 = tuple(data)
+    cursor.execute("INSERT INTO file_data (CAMIS, DBA, BORO, BUILDING, STREET, ZIPCODE, PHONE, "
+                   "CUISINE_DESCRIPTION, INSPECTION_DATE, ACTION_, VIOLATION_CODE, VIOLATION_DESCRIPTION,"
+                   "CRITICAL_FLAG, SCORE, GRADE, GRADE_DATE, RECORD_DATE, INSPECTION_TYPE) VALUES(%s, %s, %s, %s, %s,"
+                   "%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", tupledata1)
+
+myce_db.commit()
+#------------------------------UPLOADING RAW DATA (COPY)----------------------------
+
+#NEXT DO THIS:
 
 
 # # -----------------------UPLOADING DATA (VIOLATIONS)----------------------------
@@ -116,7 +125,7 @@ NEXT DO THIS:
 # # ------------------------UPLOADING DATA (VIOLATIONS)------------------
 
 
-NOW DROP THE FIRST file_data, then run this:
+#NOW DROP THE FIRST file_data, then run this:
 
 
 # # --------------------------UPLOADING SHORTENED DATA To database------------------------------
