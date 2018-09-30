@@ -9,8 +9,10 @@
 		let markers = [
 			{
 				coords:{lat:40.7516269 , lng:-73.97535},
-				content:`<h3>LEXLER DELI</h3> <p>405 LEXINGTON AVENUE New York NY</p> <br> <p> Number of violations: 2</p>`
-
+				content:`<h3>LEXLER DELI</h3>`+ 
+						` <p>405 LEXINGTON AVENUE New York NY</p> ` + 
+						` <p> Number of violations: 2</p>`+
+						` <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non nisi eu augue vestibulum porttitor. Nam iaculis orci id ligula consectetur, nec pharetra nunc tincidunt. Aenean interdum vestibulum ante, vitae fringilla velit pellentesque a. Morbi porta maximus ex eu tincidunt. In viverra nisl ut lorem scelerisque tincidunt. Etiam hendrerit eu tellus a viverra. Donec mattis posuere diam, sit amet suscipit velit fermentum nec. Mauris venenatis quis tellus sit amet auctor. </p>`
 			},
 		]
 		
@@ -134,6 +136,7 @@
 				if(props.content){
 					let infoWindow = new google.maps.InfoWindow({
 						content: props.content
+
 					});
 
 					marker.addListener('click', function(){
