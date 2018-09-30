@@ -1,4 +1,4 @@
-	let data = [
+[
  {
    "CAMIS": 40356018,
    "DBA": "RIVIERA CATERERS",
@@ -12,7 +12,7 @@
    "ACTION_": "Violations were cited in the following area(s).",
    "VIOLATION_CODE": "20A",
    "SCORE": null,
-   "GRADE": "A",
+   "GRADE": "",
    "GRADE_DATE": "",
    "INSPECTION_TYPE": "Administrative Miscellaneous / Initial Inspection",
    "lat": 40.579505,
@@ -69,7 +69,7 @@
    "ACTION_": "Violations were cited in the following area(s).",
    "VIOLATION_CODE": "08A",
    "SCORE": 40,
-   "GRADE": "B",
+   "GRADE": "",
    "GRADE_DATE": "",
    "INSPECTION_TYPE": "Cycle Inspection / Initial Inspection",
    "lat": 40.6064719,
@@ -88,7 +88,7 @@
    "ACTION_": "Violations were cited in the following area(s).",
    "VIOLATION_CODE": "08A",
    "SCORE": 9,
-   "GRADE": "F",
+   "GRADE": "",
    "GRADE_DATE": "",
    "INSPECTION_TYPE": "Cycle Inspection / Initial Inspection",
    "lat": 40.786714,
@@ -67887,166 +67887,3 @@
    "lon": -73.98217
  }
 ]
-
-		let markers = [
-		]
-		
-		function formSubmit() {
-		 	   for (var i = 0; i < 2000; i++) {
-				if((data[i] && data[i].DBA) != undefined){
-					let value = document.getElementById("restaurant").value;
-					if(data[i].DBA === value){
-						markers.push({
-							coords:{lat: parseFloat(data[i].lat), lng: parseFloat(data[i].lon)},
-							content:`<h3>Name :${data[i].DBA}</h3> <h2>Grade :${data[i].GRADE}</h2>
-									<p>Address: ${data[i].BUILDING} ${data[i].STREET} New York, NY ${data[i].ZIPCODE} </p>
-									<p>This restaurant serves ${data[i].CUISINE_DESCRIPTION} food.`
-						})
-						console.log(data[i].DBA);
-						initMap();
-						break;
-					}
-				}
-			}
-		 }
-
-		function initMap(){
-			//map options
-			let options = {
-				zoom: 11,
-				center: {lat: 40.712772, lng: -74.006058},
-				styles: [
-		            {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
-		            {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
-		            {elementType: 'labels.text.fill', stylers: [{color: '#746855'}]},
-		            {
-		              featureType: 'administrative.locality',
-		              elementType: 'labels.text.fill',
-		              stylers: [{color: '#d59563'}]
-		            },
-		            {
-		              featureType: 'poi',
-		              elementType: 'labels.text.fill',
-		              stylers: [{color: '#d59563'}]
-		            },
-		            {
-		              featureType: 'poi.park',
-		              elementType: 'geometry',
-		              stylers: [{color: '#263c3f'}]
-		            },
-		            {
-		              featureType: 'poi.park',
-		              elementType: 'labels.text.fill',
-		              stylers: [{color: '#6b9a76'}]
-		            },
-		            {
-		              featureType: 'road',
-		              elementType: 'geometry',
-		              stylers: [{color: '#38414e'}]
-		            },
-		            {
-		              featureType: 'road',
-		              elementType: 'geometry.stroke',
-		              stylers: [{color: '#212a37'}]
-		            },
-		            {
-		              featureType: 'road',
-		              elementType: 'labels.text.fill',
-		              stylers: [{color: '#9ca5b3'}]
-		            },
-		            {
-		              featureType: 'road.highway',
-		              elementType: 'geometry',
-		              stylers: [{color: '#746855'}]
-		            },
-		            {
-		              featureType: 'road.highway',
-		              elementType: 'geometry.stroke',
-		              stylers: [{color: '#1f2835'}]
-		            },
-		            {
-		              featureType: 'road.highway',
-		              elementType: 'labels.text.fill',
-		              stylers: [{color: '#f3d19c'}]
-		            },
-		            {
-		              featureType: 'transit',
-		              elementType: 'geometry',
-		              stylers: [{color: '#2f3948'}]
-		            },
-		            {
-		              featureType: 'transit.station',
-		              elementType: 'labels.text.fill', 
-		              stylers: [{color: '#d59563'}]
-		            },
-		            {
-		              featureType: 'water',
-		              elementType: 'geometry',
-		              stylers: [{color: '#17263c'}]
-		            },
-		            {
-		              featureType: 'water',
-		              elementType: 'labels.text.fill',
-		              stylers: [{color: '#515c6d'}]
-		            },
-		            {
-		              featureType: 'water',
-		              elementType: 'labels.text.stroke',
-		              stylers: [{color: '#17263c'}]
-		            }
-		          ]
-			}
-			// new map
-			let map = new google.maps.Map(document.getElementById('map'), options);
-			
-			var heatMapData = [
-			];
-			
-		
-				for (let i = 0; i < 24000; i++) {
-					if((data[i] && data[i].lat) != undefined){
-						heatMapData.push(new google.maps.LatLng(parseFloat(data[i].lat), parseFloat(data[i].lon)));
-					}
-				}
-			
-
-
-			var heatmap = new google.maps.visualization.HeatmapLayer({
-			  data: heatMapData
-			});
-			heatmap.setMap(map);
-			 
-			
-			
-
-
-				for(let i = 0; i < markers.length; i++){
-					addMarker(markers[i]);
-				}
-			
-		
-
-			function addMarker(props){
-				var marker = new google.maps.Marker({
-					position: props.coords,
-					map: map,
-					content: props.content
-
-				});
-					if(props.content){
-					let infoWindow = new google.maps.InfoWindow({
-						content: props.content
-					});
- 					marker.addListener('click', function(){
-						infoWindow.open(map,marker)
-					})
-				}
-				}
-
-
-			}
-		
-		
-		//console.log(data);
-		console.log(markers);
-	
