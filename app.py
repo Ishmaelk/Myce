@@ -19,7 +19,7 @@ db.create_all()
 @app.route("/")
 def main():
 	lines = db.session.query(Test).all()
-	return render_template('index.html', lines=lines)
+	return render_template('index.html', row=lines)
 
 if __name__ == '__main__':
     app.run(debug=True)
