@@ -5,6 +5,7 @@ import sys
 app = Flask(__name__)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////home/jon/Myce/test.db'
+app.config["CACHE_TYPE"] = "null"
 
 db = SQLAlchemy(app)
 
@@ -20,6 +21,13 @@ db.create_all()
 def main():
 	lines = db.session.query(Test).all()
 	return render_template('index.html', row=lines)
+
+@app.route("/search", methods=['GET', 'POST'])
+def search():
+	print(request.form['restaurant'])
+	lines = db.session.query(Test).filter(Test.DBA == restaurant).all()
+	return render_template('index.html', row=lines)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
