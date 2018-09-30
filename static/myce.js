@@ -1,11 +1,4 @@
 
-		function openNav() {
-		    document.getElementById("mySidenav").style.width = "250px";
-		}
-
-		function closeNav() {
-		    document.getElementById("mySidenav").style.width = "0";
-		}
 		let markers = [
 			{
 				coords:{lat:40.7516269 , lng:-73.97535},
@@ -16,12 +9,20 @@
 			},
 		]
 		
-
+		function formSubmit() {
+		 	    let value = document.getElementById("restaurant").value;
+		 	    console.log(value);
+			  //   markers.push({
+		 		// 		coords:{lat: parseFloat(lat1), lng: parseFloat(lng1)},
+		 		// 		content: "test"
+					// })
+		 	 //    initMap();
+		 	}
 
 		function initMap(){
 			//map options
 			let options = {
-				zoom: 12,
+				zoom: 11,
 				center: {lat: 40.712772, lng: -74.006058},
 				styles: [
 		            {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
@@ -106,18 +107,30 @@
 			}
 			// new map
 			let map = new google.maps.Map(document.getElementById('map'), options);
+			
 			var heatMapData = [
 			];
+			// for (var i = 0; i < 2000; i++) {
+			// 	heatMapData.push(new google.maps.LatLng(parseFloat(data[i].Lat), parseFloat(data[i].Lng)))
+			// }
 			var heatmap = new google.maps.visualization.HeatmapLayer({
 			  data: heatMapData
 			});
 			heatmap.setMap(map);
 
+
+			 
+			 
 			
-			//array of markers
-			
-			//loop to display all the markers
-			
+			for (var i = 0; i < 100; i++) {
+				
+				markers.push({
+					coords:{lat: parseFloat(data[i].Lat), lng: parseFloat(data[i].Lng)},
+					content:`<h3>${data[i].Name}</h3>`
+				})
+			}
+
+
 				for(let i = 0; i < markers.length; i++){
 					addMarker(markers[i]);
 				}
@@ -126,35 +139,30 @@
 
 			function addMarker(props){
 				var marker = new google.maps.Marker({
-				position: props.coords,
-				map: map,
-				//icon : ''
-			});
-				if(props.iconImage){
-					marker.setIcon(props.iconImage);
-				}
-				if(props.content){
+					position: props.coords,
+					map: map,
+					content: props.content
+
+				});
+					if(props.content){
 					let infoWindow = new google.maps.InfoWindow({
 						content: props.content
-
 					});
-
-					marker.addListener('click', function(){
+ 					marker.addListener('click', function(){
 						infoWindow.open(map,marker)
 					})
 				}
-			}
-		}
+				}
 
-		function formSubmit() {
-			    var lat1, lng1;
-			    lat1 = document.getElementById("lat").value;
-			    lng1 = document.getElementById("lng").value;
-			    markers.push({
-						coords:{lat: parseFloat(lat1), lng: parseFloat(lng1)}
-					})
-			    initMap();
+
 			}
 		
+
+
+
+		
+
+		
+		//console.log(data);
 		console.log(markers);
 	
