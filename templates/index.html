@@ -20,18 +20,18 @@
 		
 		 	 <div id="mySidenav" class="sidenav" style = "color : white;">
 		 	 	<img src="../static/myce-logo.png" width="100%" style="justify-content: center; padding-right: 20%; padding-left: 20%; padding-bottom: 25px; "></span>
-		 	 	<!--
-				<form class="form-inline my-2 my-lg-0">
-			      <input class="form-control mr-sm-2"  type="text" placeholder="Start typing a restaurant name" aria-label="Search" style="width: 95%; padding: 10px;" id="restaurant" name="restaurant"><br>
-			    </form>
-			-->
+		 	 	<form action="{{ url_for('search') }}" method="POST">
+						<!--<input type="text" name="restaurant">-->
+				      	<input class="form-control mr-sm-2"  type="text" placeholder="Start typing a restaurant name" aria-label="Search" style="width: 95%; padding: 10px;" id="restaurant" name="restaurant"><br>
+						<button class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Search" id="searchButton" style="width: 95%; ">Search</button>
+				  </form>
 				  <h3>Grades</h3>
-				  <input type="checkbox" name="AllGrades" value="True"> All <br>				  
-				  <input type="checkbox" name="A" value="True"> A <br>
-				  <input type="checkbox" name="B" value="True"> B <br>
-				  <input type="checkbox" name="C" value="True"> C <br>
-				  <input type="checkbox" name="F" value="True"> F <br>
-				  <input type="checkbox" name="N" value="True"> Under Review <br> <br>
+				  <input type="checkbox" name="AllGrades" value="True" style="width: 12%;"> All      				  
+				  <input type="checkbox" name="A" value="True" style="width: 15%;"> A <br>
+				  <input type="checkbox" name="B" value="True" style="width: 15%;"> B  
+				  <input type="checkbox" name="C" value="True" style="width: 15%;"> C <br>
+				  <input type="checkbox" name="F" value="True" style="width: 15%;"> F
+				  <input type="checkbox" name="N" value="True" style="width: 15%;"> Under Review <br> <br>
 				  <h3>Boroughs</h3>
 				  <input type="checkbox" name="AllBoroughs" value="True"> All <br>				  
 				  <input type="checkbox" name="Manhattan" value="True"> Manhattan <br>
@@ -40,11 +40,7 @@
 				  <input type="checkbox" name="The Bronx" value="True"> The Bronx <br>
 				  <input type="checkbox" name="Staten Island" value="True"> Staten Island <br> <br>
 
-				  <form action="{{ url_for('search') }}" method="POST">
-					<!--<input type="text" name="restaurant">-->
-			      	<input class="form-control mr-sm-2"  type="text" placeholder="Start typing a restaurant name" aria-label="Search" style="width: 95%; padding: 10px;" id="restaurant" name="restaurant"><br>
-					<button class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Search" id="searchButton" style="width: 95%; ">Search</button>
-				  </form>
+				  
 
 				</div>
 			
