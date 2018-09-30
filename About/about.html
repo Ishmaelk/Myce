@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>About Myce and Tyam</title>
+<style>
+body {
+    background-color: black;
+}
+.titleText1, .titleText2 {
+    color: white;
+    font-family: Trebuchet MS;
+    font-size: 10vw;
+    position: absolute;
+    display:block;
+    top: 1vw;
+}
+
+.titleText1 {
+    left:10%;
+}
+.logo {
+    position: absolute;
+    width: 20vw;
+    display: block;
+    left: 38%;
+}
+.titleText2 {
+    left:61%;
+}
+
+.allContent{
+    position: absolute;
+    top: 16vw;
+    width:100%;
+    padding:0;
+    margin: 1px;
+}
+
+.allText{
+    overflow: hidden;
+}
+
+.about {
+    margin: 0.4vw;
+    margin-bottom: 1.vw;
+    float: left;
+    width: 32vw;
+    min-width: 250px;
+    background-color: rgb(16,16,16);
+    border: 0px solid #48f442;
+    border-radius: 20px;
+    height: 50vw;
+    overflow: hidden;
+}
+
+.picture {
+    width: 32vw;
+    display:block;
+    border: 0px solid black;
+    border-radius: 15px;
+    min-width: 200px;
+}
+
+.description {
+    margin: 0.2vw;
+    font-family: Trebuchet MS;
+    color: #818181;
+}
+
+.picture:hover + .aboutText2{
+    transform: translateY(-74vw);
+    transition-duration: 1s;
+}
+
+.picture:hover{
+    filter:blur(4px);
+}
+
+.aboutText2 {
+    margin-left:2%;
+    margin-right:2%;
+    color:white;
+    font-family:Trebuchet MS;
+    position: relative;
+    top:32vw;
+    left:0;
+    font-size: 2.6vw;
+    width: 30vw;
+    text-align: left;
+    -webkit-user-select: none;
+    unselectable: on;
+    transform: translateY(32vw);
+    transition-duration: 1s;
+}
+
+.description {
+    position:relative;
+    width: 100%;
+    display: block;
+    text-align: center;
+    font-size: 3vw;
+}
+.backButton {
+    font-family: Trebuchet MS;
+    position: absolute;
+    top: 0.5vw;
+    left: 0.8vw;
+    display: block;
+    font-size: 24px;
+    background-color: rgb(16,16,16);
+    color: white;
+    border: 1px solid #ffee00;
+    border-radius: 15px;
+    height: 15vw;
+}
+.backButton:hover{
+    border: 1px solid #ffee00;
+    border-radius: 15px;
+    background-color: #ffc700;
+    color: black;
+    cursor: pointer;
+}
+.role{
+    text-align:center;
+    
+    border:0px solid black;
+    border-radius: 15px;
+    color: black;
+    background-color: #ffcc00;
+    font-size: 18px;
+    left:25%;
+    width:100%;
+}
+ul li{
+    display:inline-block;
+    list-style:none;
+}
+</style>
+</head>
+<body>
+    <!-----------------Title------------------>
+    <ul>
+        <li>
+            <button class="backButton" onclick="window.location.href='../index.html'">Back</button>
+        </li>
+        <li>
+            <div class="titleText1">
+            About
+            </div>
+        </li>
+        <li>
+            <img class="logo" src="myce-logo.png"/>
+        </li>
+        <li>
+            <div class="titleText2">
+            team
+            </div>
+        </li>
+    </ul>
+    <!--------------------Tiles------------------->
+    <div class="allContent">
+        <!-------------------------------------------->
+        <div class="about">
+            <div>
+                
+                <img class="picture" src="jonathan.gif"/>
+                <div class="aboutText2">
+                    Full stack developer and team leader. Organized the group and brought all the parts together. Double majoring in Computer Science and Economics at Hunter College.
+                    <br/>
+                    Loves to skateboard.
+                    <div class="role">Fullstack Engineer</div>
+                </div>
+                <div class="description" style="top:-26.5vw;">
+                    Jonathan Trachtenberg
+                </div>
+            </div>
+        </div>
+        <!-------------------------------------------->
+        <div class="about">
+            <img class="picture" src="andrey.gif"/>
+            <div class="aboutText2">
+                Hi, I am a junior attending Huter College, expected to graduate in 2020! I'm interested in all different kinds of software development, but on this project I mainly worked on front end. This page, for example, was completely made by me!
+                <div class="role">Lead Front End</div>
+            </div>
+            <div class="description" style="top: -33vw;">
+                Andrey Shtukenberg
+            </div>
+        </div>
+        <!-------------------------------------------->
+        <div class="about">
+            <img class="picture" src="cris.gif"/>
+            <div class="aboutText2">
+                My role in the team was to use the google maps api to plot the data points that we received from the Open NYC database. Using Javascript and Bootstrap I created the landing page and plotted the datapoints to create a visual representation.
+                <div class="role">Data Visualization Specialist</div>
+            </div>
+            <div class="description" style="top: -33vw;">
+                Cristopher Jimenez
+            </div>
+        </div>
+        <!-------------------------------------------->
+        <div class="about">
+            <img class="picture" src="saif.gif"/>
+            <div class="aboutText2">
+                My name is Saif Shakur, a senior attending Hunter College, expected to graduate in 2019
+                I’m interested in software development (really interested in EdTech) and I have a passion for coding and teaching!
+                For Myce I utilized Python and MySQL to import, manipulate/ condense data, and exported it for front-end use.
+                <div class="role">Database Manager.</div>
+            </div>
+            <div class="description" style="top: -45vw;">
+                Saif Shakur
+            </div>
+        </div>
+        <!-------------------------------------------->
+        <div class="about">
+            <img class="picture" src="team.gif"/>
+            <div class="aboutText2" style="color: black;">
+                Hello, world!<br/>
+                We are proud to present this new web application to the world!
+            </div>
+            <div class="description" style="top: -12vw;">
+                The Team
+            </div>
+        </div>
+        <!-------------------------------------------->
+        <div class="about">
+            <img class="picture" src="ismail.gif"/>
+            <div class="aboutText2">
+                Senior at Hunter College, hobby game developer, worked with data parsing and database population for this project. Come to my Karaoke events!
+            </div>
+            <div class="description" style="top: -18vw;">
+                Ismail Kheir
+            </div>
+        </div>
+        <!------------------End Tiles------------------->
+    </div>
+</body>
+</html>
