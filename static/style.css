@@ -1,33 +1,24 @@
 
 #map{
-	height: 98vh;
+	height: 100vh;
 	width: 100%;
 }
 
 .sidenav {
-    height: 92.5vh;
-    width: 0;
+    height: 100%;
+    width: 20%;
     position: fixed;
     z-index: 1;
-    top: 8vh;
+    top: 0;
     left: 0;
-    background-color: rgba(16,16,16,0.9);
+    background-color: rgba(16,16,16,1);
     overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
+    padding-top: 30px;
+    padding-left: 15px;
+    padding-right: 5px;
 }
 
-.navbar-form {
-    overflow: auto;
-}
-.navbar-form .form-control {
-    display: inline-block;
-    width: 70%; 
-    vertical-align: middle;
-}
-.navbar-form .form-group {
-    display: inline;
-}
+
 
 .sidenav a {
     padding: 8px 8px 8px 32px;
@@ -41,7 +32,10 @@
 .sidenav a:hover {
     color: #f1f1f1;
 }
-
+#main {
+    transition: margin-left .5s;
+    padding: 0px;
+}
 .sidenav .closebtn {
     position: absolute;
     top: 0;
@@ -54,3 +48,5 @@
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
+
+

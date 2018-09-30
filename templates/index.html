@@ -2,57 +2,61 @@
 <html lang = "en">
 <head>
 	<title>Myce</title>
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+	<link rel="stylesheet" type="text/css" href="../static/style.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	<link rel= "shortcut icon" href="favicon.ico">
-	<link rel= "shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-
+	<link rel= "shortcut icon" href="../static/favicon.ico">
+	<script>
+		var results = {{ row|tojson }}
+	</script>
 </head>
 
 <body>
 
-	
+	<div id = "main">
 	<!--	<input id="lat" placeholder="latitude"> <input id="lng" placeholder="longitude"> -->
 	<form action="/search" method="post" >
-		<nav class="navbar navbar-dark bg-dark">
+		
 		 	 <div id="mySidenav" class="sidenav" style = "color : white;">
-				  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		 	 	<img src="../static/myce-logo.png" width="100%" style="justify-content: center; padding-right: 20%; padding-left: 20%; padding-bottom: 25px; "></span>
+				<form class="form-inline my-2 my-lg-0">
+			      <input class="form-control mr-sm-2"  type="search" placeholder="Start typing a resuarant name" aria-label="Search" style="width: 95%; padding: 10px;" id = "searchField"><br>
+			    </form>
 				  <h3>Grades</h3>
+				  <input type="checkbox" name="AllGrades" value="True"> All <br>				  
 				  <input type="checkbox" name="A" value="True"> A <br>
 				  <input type="checkbox" name="B" value="True"> B <br>
 				  <input type="checkbox" name="C" value="True"> C <br>
 				  <input type="checkbox" name="F" value="True"> F <br>
 				  <input type="checkbox" name="N" value="True"> Under Review <br> <br>
 				  <h3>Boroughs</h3>
+				  <input type="checkbox" name="AllBoroughs" value="True"> All <br>				  
 				  <input type="checkbox" name="Manhattan" value="True"> Manhattan <br>
 				  <input type="checkbox" name="Brooklyn" value="True"> Brooklyn <br>
 				  <input type="checkbox" name="Queens" value="True"> Queens <br>
 				  <input type="checkbox" name="The Bronx" value="True"> The Bronx <br>
-				  <input type="checkbox" name="Staten Island" value="True"> Staten Island <br>
+				  <input type="checkbox" name="Staten Island" value="True"> Staten Island <br> <br>
 
+			      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="searchButton" style="width: 95%; ">Search</button>
 
 				</div>
-			<img src="{{ url_for('static', filename='myce-logo.png') }}" width="6%" onclick="openNav()"></span>
-			<form class="form-inline my-2 my-lg-0">
-		      <input class="form-control mr-sm-2"  type="search" placeholder="Search" aria-label="Search" style="width:1200px;" id = "searchField">
-		      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="searchButton" >Search</button>
-		    </form>
+			
 
-		</nav>
+		
 	</form>
 	
 		
 
 
 		<div id= "map"></div>
-
+</div>
 	<script
 	  src="https://code.jquery.com/jquery-3.3.1.min.js"
 	  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
 	  crossorigin="anonymous"></script>
  
 
-	<script src="{{ url_for('static', filename='myce.js') }}"></script>
+	<script src="../static/myce.js"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAX8IfG5ir2VdKr73W5jbi-eJPrmU5s5eA&&libraries=visualization&callback=initMap"
     async defer></script>
 

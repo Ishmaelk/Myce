@@ -7,6 +7,11 @@
 		    document.getElementById("mySidenav").style.width = "0";
 		}
 		let markers = [
+			{
+				coords:{lat:40.7516269 , lng:-73.97535},
+				content:`<h3>LEXLER DELI</h3> <p>405 LEXINGTON AVENUE New York NY</p> <br> <p> Number of violations: 2</p>`
+
+			},
 		]
 		
 
