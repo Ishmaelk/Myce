@@ -20,9 +20,11 @@
 		
 		 	 <div id="mySidenav" class="sidenav" style = "color : white;">
 		 	 	<img src="../static/myce-logo.png" width="100%" style="justify-content: center; padding-right: 20%; padding-left: 20%; padding-bottom: 25px; "></span>
+		 	 	<!--
 				<form class="form-inline my-2 my-lg-0">
-			      <input class="form-control mr-sm-2"  type="search" placeholder="Start typing a resuarant name" aria-label="Search" style="width: 95%; padding: 10px;" id = "searchField" name="restaurant"><br>
+			      <input class="form-control mr-sm-2"  type="text" placeholder="Start typing a restaurant name" aria-label="Search" style="width: 95%; padding: 10px;" id="restaurant" name="restaurant"><br>
 			    </form>
+			-->
 				  <h3>Grades</h3>
 				  <input type="checkbox" name="AllGrades" value="True"> All <br>				  
 				  <input type="checkbox" name="A" value="True"> A <br>
@@ -40,7 +42,8 @@
 
 				  <form action="{{ url_for('search') }}" method="POST">
 					<!--<input type="text" name="restaurant">-->
-					<button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="searchButton" style="width: 95%; ">Search</button>
+			      	<input class="form-control mr-sm-2"  type="text" placeholder="Start typing a restaurant name" aria-label="Search" style="width: 95%; padding: 10px;" id="restaurant" name="restaurant"><br>
+					<button class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Search" id="searchButton" style="width: 95%; ">Search</button>
 				  </form>
 
 				</div>
