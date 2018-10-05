@@ -8,6 +8,19 @@
 
 
  </head>
+	
+<script>
+	document.addEventListener("DOMContentLoaded", function() {
+		var input = document.getElementById("restaurant");
+
+		input.addEventListener("keyup", function(event) {
+			event.preventDefault();
+			if (event.keyCode === 13) {
+				 document.getElementById("searchButton").click();
+			}
+		});
+	});
+</script>
 
  <body>
  
